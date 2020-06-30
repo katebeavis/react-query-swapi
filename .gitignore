@@ -4,6 +4,7 @@ logs
 npm-debug.log.*
 .yarnclean
 **/yarn-error.log
+.env
 
 # Runtime data
 pids
