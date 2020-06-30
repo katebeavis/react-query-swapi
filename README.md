@@ -9,3 +9,5 @@ $ git clone git@github.com:katebeavis/bare-bones-react-ts.git && cd bare-bones-r
 $ yarn
 $ yarn dev
 ```
+
+Your app will now be running on http://localhost:8080
