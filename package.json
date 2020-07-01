@@ -5,7 +5,8 @@
   "author": "Kate Beavis",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server --open --config ./config/webpack.dev.js"
+    "dev": "webpack-dev-server --open --config ./config/webpack.dev.js",
+    "typecheck": "tsc --noEmit -p ./tsconfig.json"
   },
   "dependencies": {
     "@babel/core": "^7.10.4",
