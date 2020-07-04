@@ -1,4 +1,4 @@
-# bare-bones-react-ts [![Dependabot Status](https://badgen.net/dependabot/katebeavis/repos/276142331?icon=dependabot)](https://app.dependabot.com/accounts/katebeavis/repos/276142331)
+# bare-bones-react-ts [![Dependabot Status](https://badgen.net/dependabot/katebeavis/bare-bones-react-ts/276142331?icon=dependabot)](https://app.dependabot.com/accounts/katebeavis/repos/276142331)
 
 Bare bones React project with Typescript, Webpack, Babel and React router
 
