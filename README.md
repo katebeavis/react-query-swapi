@@ -5,10 +5,21 @@ Bare bones React project with Typescript, Webpack, Babel and React router
 ## To setup
 
 ```
-$ git clone git@github.com:katebeavis/bare-bones-react-ts.git && cd bare-bones-react-ts
+$ git clone git@github.com:katebeavis/bare-bones-react-ts.git name_of_your_project && cd name_of_your_project
 $ touch .env
 $ yarn
 $ yarn dev
 ```
 
 Your app will now be running on http://localhost:8080
+
+## To use
+
+Remove remote and add your own
+
+```
+$ git remote remove origin
+$ git
+```
+
+Then you can change the contents of `App.tsx` and add your own components
