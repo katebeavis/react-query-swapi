@@ -8,8 +8,11 @@
     "dev": "webpack-dev-server --open --config ./config/webpack.dev.js",
     "typecheck": "tsc --noEmit -p ./tsconfig.json"
   },
+  "proxy": "https://graphql.org/swapi-graphql",
   "dependencies": {
     "dotenv-webpack": "^6.0.0",
+    "graphql": "^15.4.0",
+    "graphql-request": "^3.3.0",
     "html-webpack-plugin": "^4.5.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
