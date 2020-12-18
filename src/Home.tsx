@@ -36,18 +36,24 @@ const Home = () => {
     }
   );
 
-  const addCharacterToFavourites = async ({ character }: any) => {
+  const addCharacterToFavourites = (prevData: any, character: any) =>
+    prevData === undefined ? [character] : [...prevData, character];
+
+  const removeCharacterFromFavourites = (prevData: any, character: any) =>
+    prevData.filter((item: any) => character !== item);
+
+  const updateFavourites = async ({ character, callback }: any) => {
     await queryClient.setQueryData('favouriteCharacters', (prevData: any) =>
-      prevData === undefined ? [character] : [...prevData, character]
+      callback(prevData, character)
     );
     refetch();
   };
 
   const {
-    mutate: addToFavourites,
-    isLoading: addToFavouritesLoading,
-    error: addToFavouritesError,
-  } = useMutation('addToFavouritesMutation', addCharacterToFavourites);
+    mutate: updateFavouritesMutate,
+    isLoading: updateFavouritesLoading,
+    error: updateFavouritesError,
+  } = useMutation('updateFavouritesMutation', updateFavourites);
 
   const { isLoading, data, error } = useQuery('restPeopleQuery', fetchData);
 
@@ -62,11 +68,11 @@ const Home = () => {
     { enabled: false }
   );
 
-  if (error || graphqlError || addToFavouritesError || fetchFavouritesError) {
+  if (error || graphqlError || updateFavouritesError || fetchFavouritesError) {
     console.log(
       error,
       graphqlError,
-      addToFavouritesError,
+      updateFavouritesError,
       fetchFavouritesError
     );
     return <>error</>;
@@ -87,9 +93,12 @@ const Home = () => {
               {graphqlData?.person?.name}{' '}
               <button
                 onClick={() =>
-                  addToFavourites({ character: graphqlData?.person?.name })
+                  updateFavouritesMutate({
+                    character: graphqlData?.person?.name,
+                    callback: addCharacterToFavourites,
+                  })
                 }
-                disabled={addToFavouritesLoading || fetchFavouritesLoading}
+                disabled={updateFavouritesLoading || fetchFavouritesLoading}
               >
                 Add to favourites
               </button>
@@ -115,9 +124,24 @@ const Home = () => {
       {fetchFavouritesData === undefined ? (
         <h3>No favourites added yet!</h3>
       ) : (
-        fetchFavouritesData.map((character: string, index: number) => (
-          <p key={index}>{character}</p>
-        ))
+        fetchFavouritesData.map((character: string, index: number) => {
+          return (
+            <div key={index} style={{ display: 'flex', marginBottom: '10px' }}>
+              <p style={{ marginRight: '10px' }}>{character}</p>
+              <button
+                onClick={() =>
+                  updateFavouritesMutate({
+                    character,
+                    callback: removeCharacterFromFavourites,
+                  })
+                }
+                disabled={updateFavouritesLoading || fetchFavouritesLoading}
+              >
+                {`Remove ${character} from favourites`}
+              </button>
+            </div>
+          );
+        })
       )}
     </>
   );
