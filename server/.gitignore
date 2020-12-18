@@ -1,5 +1,4 @@
 /lib
-/netlify-lambda-lib
 /public/schema.js
 node_modules
 npm-debug.log

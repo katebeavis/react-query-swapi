@@ -4,10 +4,15 @@
   "main": "index.ts",
   "author": "Kate Beavis",
   "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "scripts": {
     "dev": "concurrently \"yarn dev:client\"  \"yarn dev:server\"",
-    "dev:client": "cd client && yarn dev",
-    "dev:server": "cd server && npm start"
+    "dev:server": "yarn workspace server run dev",
+    "dev:client": "yarn workspace client run dev"
   },
   "proxy": "http://localhost:6060",
   "devDependencies": {

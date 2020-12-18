@@ -6,7 +6,9 @@ const queryClient = new QueryClient();
 
 const Home = () => {
   const fetchData = async () => {
-    const res = await fetch(`https://swapi.dev/api/people/1/`);
+    const res = await fetch(
+      `https://swapi.dev/api/people/${Math.floor(Math.random() * 83) + 1}/`
+    );
     const json = await res.json();
     return json;
   };
