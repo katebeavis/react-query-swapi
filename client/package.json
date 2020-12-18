@@ -1,0 +1,39 @@
+{
+  "name": "react-query-swapi",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "author": "Kate Beavis",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack-dev-server --open --config ./config/webpack.dev.js",
+    "typecheck": "tsc --noEmit -p ./tsconfig.json"
+  },
+  "proxy": "https://graphql.org/swapi-graphql",
+  "dependencies": {
+    "dotenv-webpack": "^6.0.0",
+    "graphql": "^15.4.0",
+    "graphql-request": "^3.3.0",
+    "html-webpack-plugin": "^4.5.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-query": "^3.2.0",
+    "react-router-dom": "^5.2.0",
+    "typescript": "^4.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-export-default-from": "^7.12.1",
+    "@babel/plugin-transform-react-jsx": "^7.10.4",
+    "@babel/preset-env": "^7.12.10",
+    "@babel/preset-react": "^7.12.10",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-router-dom": "^5.1.6",
+    "babel-loader": "^8.2.2",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.7.0"
+  }
+}
